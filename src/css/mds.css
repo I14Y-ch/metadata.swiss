@@ -35,6 +35,8 @@ header {
 
 .header-wrapper {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     background-color: #fff;
     border-bottom: 5px solid #dc0018;
@@ -44,7 +46,60 @@ header {
 .layout-brand {
     display: flex;
     align-items: center;
-    width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    white-space: nowrap;
+    padding: 0.75rem 1rem;
+}
+
+.language-switcher {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #d8d8de;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.language-switcher li {
+    margin: 0;
+}
+
+.language-switcher li + li {
+    border-left: 1px solid #d8d8de;
+}
+
+.language-switcher a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    padding: 0.35rem 0.65rem;
+    color: #3a3a46;
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.2;
+    background-color: #ffffff;
+}
+
+.language-switcher a:hover,
+.language-switcher a:focus-visible {
+    background-color: #f3f3f7;
+}
+
+.language-switcher a.active {
+    color: #ffffff;
+    background-color: #dc0018;
 }
 
 .logo {
@@ -173,6 +228,27 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .header-wrapper {
+        flex-wrap: wrap;
+        padding-bottom: 0;
+    }
+
+    .layout-brand {
+        width: 100%;
+    }
+
+    .header-controls {
+        width: 100%;
+        justify-content: flex-end;
+        padding-top: 0;
+        padding-bottom: 0.5rem;
+    }
+
+    .header-title {
+        font-size: 22px;
+        padding-left: 12px;
+    }
+
     .content-wrapper {
         padding: 1rem;
     }
@@ -220,19 +296,8 @@ footer {
     color: #333;
 }
 
-.language-link {
-    font-style: italic;
-    margin: 20px 0;
-}
-
-.language-link a {
-    text-decoration: underline;
-}
-
-.section-fr {
-    margin-top: 60px;
-    padding-top: 40px;
-    border-top: 1px solid #e0e0e0;
+.lang-section[hidden] {
+    display: none;
 }
 
 .intro form {
